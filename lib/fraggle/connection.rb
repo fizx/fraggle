@@ -95,6 +95,10 @@ module Fraggle
       data = req.encode
       head = [data.length].pack("N")
 
+      if "1.9".respond_to?(:encoding)
+        data.encode!('ASCII-8BIT')
+      end
+
       send_data("#{head}#{data}")
 
       req
