@@ -96,7 +96,7 @@ module Fraggle
       head = [data.length].pack("N")
 
       if "1.9".respond_to?(:encoding)
-        data.encode!('ASCII-8BIT')
+        data.buf.encode!('ASCII-8BIT')
       end
 
       send_data("#{head}#{data}")
